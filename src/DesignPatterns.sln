@@ -1,7 +1,31 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PatternRunner", "PatternRunner\PatternRunner.csproj", "{F20CC703-6A30-4401-8DEE-D6F4DD0B5A3C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{BA57A336-41CB-4D6C-895B-9702DDC4E210}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlackWasp", "BlackWasp\BlackWasp.csproj", "{6F29CF1E-F2E2-44B7-BBDB-B93DEA7BE228}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F20CC703-6A30-4401-8DEE-D6F4DD0B5A3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F20CC703-6A30-4401-8DEE-D6F4DD0B5A3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F20CC703-6A30-4401-8DEE-D6F4DD0B5A3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F20CC703-6A30-4401-8DEE-D6F4DD0B5A3C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA57A336-41CB-4D6C-895B-9702DDC4E210}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA57A336-41CB-4D6C-895B-9702DDC4E210}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA57A336-41CB-4D6C-895B-9702DDC4E210}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA57A336-41CB-4D6C-895B-9702DDC4E210}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F29CF1E-F2E2-44B7-BBDB-B93DEA7BE228}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F29CF1E-F2E2-44B7-BBDB-B93DEA7BE228}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F29CF1E-F2E2-44B7-BBDB-B93DEA7BE228}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F29CF1E-F2E2-44B7-BBDB-B93DEA7BE228}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
