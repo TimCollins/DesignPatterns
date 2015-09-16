@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace BlackWasp.GenericObjectPool
 {
@@ -12,6 +13,17 @@ namespace BlackWasp.GenericObjectPool
     {
         private readonly List<T> _available = new List<T>(); 
         private readonly List<T> _inUse = new List<T>();
+
+        private Action<T> _cleanUp;
+
+        public Pool(Action<T> cleanUp)
+        {
+            if (cleanUp == null)
+            {
+                throw new ArgumentNullException("cleanUp");
+            }
+            _cleanUp = cleanUp;
+        }
 
         public T Get()
         {
@@ -48,6 +60,7 @@ namespace BlackWasp.GenericObjectPool
 
         private void CleanUp(T obj)
         {
+            _cleanUp(obj);
         }
     }
 }
