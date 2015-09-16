@@ -42,6 +42,7 @@
     <Compile Include="AbstractFactory\Basic.cs" />
     <Compile Include="AbstractFactory\Example.cs" />
     <Compile Include="GenericObjectPool\Pool.cs" />
+    <Compile Include="GenericObjectPool\PooledObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
