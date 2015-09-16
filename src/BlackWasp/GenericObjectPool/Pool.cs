@@ -16,35 +16,51 @@ namespace BlackWasp.GenericObjectPool
 
         private Action<T> _cleanUp;
 
-        public Pool(Action<T> cleanUp)
+        public int MaxPoolSize { get; private set; }
+
+        public int PoolSize
+        {
+            get { return _available.Count + _inUse.Count; }
+        }
+
+        public Pool(Action<T> cleanUp, int maxPoolSize)
         {
             if (cleanUp == null)
             {
                 throw new ArgumentNullException("cleanUp");
             }
             _cleanUp = cleanUp;
+            MaxPoolSize = maxPoolSize;
         }
 
         public T Get()
         {
             lock (_available)
             {
-                if (_available.Count != 0)
+                if (_available.Count == 0)
                 {
-                    T obj = _available[0];
-                    _inUse.Add(obj);
-                    _available.RemoveAt(0);
-
-                    return obj;
+                    return AddToPool();
                 }
-                else
-                {
-                    T obj = new T();
-                    _inUse.Add(obj);
 
-                    return obj;
-                }
+                T obj = _available[0];
+                _inUse.Add(obj);
+                _available.RemoveAt(0);
+
+                return obj;
             }
+        }
+
+        private T AddToPool()
+        {
+            if (PoolSize == MaxPoolSize)
+            {
+                throw new InvalidOperationException("Pool exhausted");
+            }
+
+            T obj = new T();
+            _inUse.Add(obj);
+
+            return obj;
         }
 
         public void Release(T obj)
