@@ -1,5 +1,5 @@
 ﻿using System;
-using BlackWasp.AbstractFactory;
+using BlackWasp.GenericObjectPool;
 
 namespace PatternRunner
 {
@@ -7,19 +7,26 @@ namespace PatternRunner
     {
         static void Main(string[] args)
         {
-            PurchaseFactory spf = new StandardPurchaseFactory();
-            ExampleClient standardClient = new ExampleClient(spf);
+            var pool = new Pool<PooledObject>();
 
-            Console.WriteLine(standardClient.ClientPackaging.GetType());
-            Console.WriteLine(standardClient.ClientDocument.GetType());
+            var obj1 = pool.Get();
+            obj1.Name = "First";
+            Show(obj1);
 
-            PurchaseFactory dpf = new DelicatePurchaseFactory();
-            ExampleClient delicateClient = new ExampleClient(dpf);
+            var obj2 = pool.Get();
+            obj2.Name = "Second";
+            Show(obj2);
 
-            Console.WriteLine(delicateClient.ClientPackaging.GetType());
-            Console.WriteLine(delicateClient.ClientDocument.GetType());
+            var obj3 = pool.Get();
+            obj3.Name = "Third";
+            Show(obj3);
 
             ConsoleUtils.WaitForEscape();
+        }
+
+        private static void Show(PooledObject o)
+        {
+            Console.WriteLine("{0} - {1}", o.PermanentId, o.Name);
         }
     }
 }
