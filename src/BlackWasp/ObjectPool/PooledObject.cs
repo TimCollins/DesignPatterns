@@ -2,6 +2,9 @@
 
 namespace BlackWasp.ObjectPool
 {
+    /// <summary>
+    /// Object to create and allocate through a pool.
+    /// </summary>
     public class PooledObject
     {
         private DateTime _createdAt = DateTime.Now;
