@@ -43,8 +43,13 @@
     <Compile Include="AbstractFactory\Example.cs" />
     <Compile Include="GenericObjectPool\Pool.cs" />
     <Compile Include="GenericObjectPool\PooledObject.cs" />
+    <Compile Include="ObjectPool\AutomaticPicker.cs" />
+    <Compile Include="ObjectPool\PickerPool.cs" />
+    <Compile Include="ObjectPool\Pool.cs" />
+    <Compile Include="ObjectPool\PooledObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
