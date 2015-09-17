@@ -33,7 +33,7 @@ namespace BlackWasp.ObjectPool
 
         public void Drop()
         {
-            ShowMessage("Dropped" + Carrying);
+            ShowMessage("Dropped " + Carrying);
             Carrying = null;
         }
 

@@ -7,12 +7,12 @@ namespace BlackWasp.ObjectPool
     {
         private const int PickerCount = 5;
 
-        private static List<AutomatedPicker> _available = new List<AutomatedPicker>();
-        private static List<AutomatedPicker> _inUse = new List<AutomatedPicker>();
+        private static readonly List<AutomatedPicker> _available = new List<AutomatedPicker>();
+        private static readonly List<AutomatedPicker> _inUse = new List<AutomatedPicker>();
 
         static PickerPool()
         {
-            for (int i = 0; i <= PickerCount; i++)
+            for (int i = 1; i <= PickerCount; i++)
             {
                 _available.Add(new AutomatedPicker(i));
             }

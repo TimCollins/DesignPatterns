@@ -1,5 +1,6 @@
 ﻿using System;
-using BlackWasp.GenericObjectPool;
+using BlackWasp.ObjectPool;
+using PooledObject = BlackWasp.GenericObjectPool.PooledObject;
 
 namespace PatternRunner
 {
@@ -7,19 +8,33 @@ namespace PatternRunner
     {
         static void Main(string[] args)
         {
-            var pool = new Pool<PooledObject>(o => o.Name = null, 2);
+            AutomatedPicker pickerA = PickerPool.GetPicker();
+            AutomatedPicker pickerB = PickerPool.GetPicker();
 
-            var obj1 = pool.Get();
-            obj1.Name = "First";
-            Show(obj1);
+            pickerA.Identify("PA");
+            pickerB.Identify("PB");
 
-            var obj2 = pool.Get();
-            obj2.Name = "Second";
-            Show(obj2);
+            pickerA.GoToLocation("Bay 1");
+            pickerB.GoToLocation("Bay 3");
 
-            var obj3 = pool.Get();
-            obj3.Name = "Third";
-            Show(obj3);
+            pickerA.Pick("Processor");
+            pickerB.Pick("RAM");
+
+            pickerA.GoToLocation("Build Room");
+            pickerB.GoToLocation("Build Room");
+
+            pickerA.Drop();
+            pickerB.Drop();
+
+            PickerPool.ReleasePicker(pickerA);
+            PickerPool.ReleasePicker(pickerB);
+
+            AutomatedPicker pickerC = PickerPool.GetPicker();
+            AutomatedPicker pickerD = PickerPool.GetPicker();
+            AutomatedPicker pickerE = PickerPool.GetPicker();
+            AutomatedPicker pickerF = PickerPool.GetPicker();
+            AutomatedPicker pickerG = PickerPool.GetPicker();
+            AutomatedPicker pickerH = PickerPool.GetPicker();
 
             ConsoleUtils.WaitForEscape();
         }
@@ -30,3 +45,4 @@ namespace PatternRunner
         }
     }
 }
+
