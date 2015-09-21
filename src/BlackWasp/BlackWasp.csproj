@@ -43,6 +43,7 @@
     <Compile Include="AbstractFactory\Example.cs" />
     <Compile Include="Builder\Basic.cs" />
     <Compile Include="Builder\Example.cs" />
+    <Compile Include="Factory\Basic.cs" />
     <Compile Include="GenericObjectPool\Pool.cs" />
     <Compile Include="GenericObjectPool\PooledObject.cs" />
     <Compile Include="ObjectPool\AutomaticPicker.cs" />
