@@ -47,7 +47,7 @@
 
         public override void AddSandwich()
         {
-            _meal.Sandwich = "Vegeburger";
+            _meal.Sandwich = "Veggieburger";
         }
 
         public override void AddSideOrder()

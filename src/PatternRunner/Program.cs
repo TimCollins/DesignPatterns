@@ -1,6 +1,5 @@
 ﻿using System;
-using BlackWasp.ObjectPool;
-using PooledObject = BlackWasp.GenericObjectPool.PooledObject;
+using BlackWasp.Builder;
 
 namespace PatternRunner
 {
@@ -8,41 +7,21 @@ namespace PatternRunner
     {
         static void Main(string[] args)
         {
-            AutomatedPicker pickerA = PickerPool.GetPicker();
-            AutomatedPicker pickerB = PickerPool.GetPicker();
+            MealDirector director = new MealDirector();
+            MealBuilder jv = new JollyVegetarianMealBuilder();
 
-            pickerA.Identify("PA");
-            pickerB.Identify("PB");
+            director.MakeMeal(jv);
 
-            pickerA.GoToLocation("Bay 1");
-            pickerB.GoToLocation("Bay 3");
+            Console.WriteLine(jv.GetMeal());
 
-            pickerA.Pick("Processor");
-            pickerB.Pick("RAM");
+            MealBuilder mm = new MischievousMexicanBuilder();
 
-            pickerA.GoToLocation("Build Room");
-            pickerB.GoToLocation("Build Room");
+            director.MakeMeal(mm);
 
-            pickerA.Drop();
-            pickerB.Drop();
-
-            PickerPool.ReleasePicker(pickerA);
-            PickerPool.ReleasePicker(pickerB);
-
-            AutomatedPicker pickerC = PickerPool.GetPicker();
-            AutomatedPicker pickerD = PickerPool.GetPicker();
-            AutomatedPicker pickerE = PickerPool.GetPicker();
-            AutomatedPicker pickerF = PickerPool.GetPicker();
-            AutomatedPicker pickerG = PickerPool.GetPicker();
-            AutomatedPicker pickerH = PickerPool.GetPicker();
+            Console.WriteLine(mm.GetMeal());
 
             ConsoleUtils.WaitForEscape();
-        }
-
-        private static void Show(PooledObject o)
-        {
-            Console.WriteLine("{0} - {1}", o.PermanentId, o.Name);
-        }
+        }        
     }
 }
 
