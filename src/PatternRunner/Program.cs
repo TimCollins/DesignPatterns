@@ -1,5 +1,5 @@
 ﻿using System;
-using BlackWasp.Builder;
+using BlackWasp.Factory;
 
 namespace PatternRunner
 {
@@ -7,18 +7,9 @@ namespace PatternRunner
     {
         static void Main(string[] args)
         {
-            MealDirector director = new MealDirector();
-            MealBuilder jv = new JollyVegetarianMealBuilder();
-
-            director.MakeMeal(jv);
-
-            Console.WriteLine(jv.GetMeal());
-
-            MealBuilder mm = new MischievousMexicanBuilder();
-
-            director.MakeMeal(mm);
-
-            Console.WriteLine(mm.GetMeal());
+            CarFactory hyundai = new HyundaiCarFactory();
+            Car coupe = hyundai.CreateCar("coupe");
+            Console.WriteLine(coupe.GetType());
 
             ConsoleUtils.WaitForEscape();
         }        
