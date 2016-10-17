@@ -8,7 +8,7 @@
 
         private ApplicationState() { }
 
-        public ApplicationState GetApplicationState()
+        public static ApplicationState GetApplicationState()
         {
             lock (_lock)
             {
