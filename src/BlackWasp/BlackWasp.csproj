@@ -44,6 +44,7 @@
     <Compile Include="Builder\Basic.cs" />
     <Compile Include="Builder\Example.cs" />
     <Compile Include="Facade\Basic.cs" />
+    <Compile Include="Facade\Example.cs" />
     <Compile Include="Factory\Basic.cs" />
     <Compile Include="Factory\Example.cs" />
     <Compile Include="GenericObjectPool\Pool.cs" />
